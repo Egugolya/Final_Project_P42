@@ -1,5 +1,9 @@
-Milk|30
-Bread|20
-Garlic|10
-Water|50
-Apples|54
+Bread|15|Dobropek|19|bakery|2025-10-04|2025-10-06
+Water|50|Morshynska|22|beverages|2025-10-01|2026-10-01
+Apple Juice|30|Sandora|42|beverages|2025-09-30|2026-03-01
+Milk|20|Ferma|34.5|dairy|2025-10-01|2025-10-08
+Yogurt|18|Halychyna|28|dairy|2025-10-03|2025-10-10
+Cheese|12|Ferma|65|dairy|2025-10-02|2025-11-15
+Sausage|10|MeatHouse|89.9|meat|2025-10-02|2025-10-12
+Cookies|25|Roshen|45|sweets|2025-09-28|2026-01-15
+Chocolate|40|Roshen|55|sweets|2025-10-01|2026-04-01

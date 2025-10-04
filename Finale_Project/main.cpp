@@ -1,4 +1,5 @@
 #include <iostream>
+#include <clocale>
 #include <string>
 #include <windows.h>
 #include <conio.h>
@@ -9,15 +10,18 @@
 using namespace std;
 
 int main() {
+    setlocale(LC_ALL, "ukr");
     loadProductsFromFile("products.txt");
-
+    ClearConsole();
     while (true) {
+        SetColor(WHITE, BLACK);
         const char* menuItems[] = {
             "Add product",
             "Delete product",
-            "Rename product",
-            "Change quantity",
+            "Edit product", 
             "Show all products",
+            "Search products",
+            "Sort products",
             "Exit"
         };
         const int menuSize = sizeof(menuItems) / sizeof(menuItems[0]);
@@ -27,10 +31,11 @@ int main() {
         switch (choice) {
         case 0: addProduct(); break;
         case 1: deleteProduct(); break;
-        case 2: renameProduct(); break;
-        case 3: changeQuantity(); break;
-        case 4: showProducts(); break;
-        case 5: return 0;
+        case 2: editMenu(); break;   
+        case 3: showProducts(); break;
+        case 4: searchMenu(); break;
+        case 5: sortMenu(); break;
+        case 6: return 0;
         }
     }
 }

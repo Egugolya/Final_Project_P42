@@ -4,6 +4,7 @@
 #include <conio.h>
 #include <fstream>
 #include "console_stuff.h"
+#include <clocale>
 
 using namespace std;
 
@@ -50,6 +51,7 @@ int ShowMenu(const char* items[], int itemCount, int startX, int startY) {
                 SetColor(WHITE, BLACK);
             cout << items[i] << " ";
         }
+
         int key = _getch();
         if (key == 224) {
             key = _getch();
@@ -60,7 +62,33 @@ int ShowMenu(const char* items[], int itemCount, int startX, int startY) {
         }
         else if (key == 13) {
             ShowConsoleCursor(true);
+            SetColor(WHITE, BLACK);
             return active;
         }
+        else if (key == 27) {
+            ShowConsoleCursor(true);
+            SetColor(WHITE, BLACK);
+            return -1;
+        }
     }
+}
+
+void ShowAnimatedMessage(const string& message, int cycles = 3, int delayMs = 300) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+    GetConsoleScreenBufferInfo(hConsole, &csbi);
+    WORD originalAttr = csbi.wAttributes;
+
+    for (int i = 0; i < cycles; ++i) {
+        SetColor(WHITE, RED);
+        cout << "\r" << message << "   ";
+        Sleep(delayMs);
+
+        SetColor(RED, BLACK);
+        cout << "\r" << message << "   ";
+        Sleep(delayMs);
+    }
+
+    SetColor(WHITE, BLACK);
+    cout << "\r" << message << " done.\n";
 }
