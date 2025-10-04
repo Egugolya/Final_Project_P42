@@ -124,3 +124,23 @@ void showProducts() {
     }
     system("pause");
 }
+
+void editMenu() {
+    const char* editItems[] = {
+        "Rename product",
+        "Change quantity",
+        "Back"
+    };
+    const int editSize = sizeof(editItems) / sizeof(editItems[0]);
+
+    while (true) {
+        ClearConsole();
+        int choice = ShowMenu(editItems, editSize, 5, 2);
+        switch (choice) {
+        case 0: renameProduct(); break;
+        case 1: changeQuantity(); break;
+        default: return;
+        }
+        _getch();
+    }
+}

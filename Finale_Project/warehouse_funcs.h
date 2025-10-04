@@ -24,3 +24,5 @@ void renameProduct();
 void changeQuantity();
 
 void showProducts();
+
+void editMenu();
