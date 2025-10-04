@@ -179,6 +179,7 @@ void editMenu() {
     while (true) {
         ClearConsole();
         int choice = ShowMenu(editItems, editSize, 5, 2);
+        if (choice == -1 || choice == editSize - 1) return;
         switch (choice) {
         case 0: renameProduct(); break;
         case 1: changeQuantity(); break;
@@ -331,6 +332,8 @@ void sortMenu() {
     while (true) {
         ClearConsole();
         int choice = ShowMenu(sortItems, sortSize, 5, 2);
+        if (choice == -1 || choice == sortSize - 1) return;
+
         switch (choice) {
         case 0: sortByPrice(); break;
         case 1: sortByGroup(); break;
@@ -341,19 +344,16 @@ void sortMenu() {
 
 void searchMenu() {
     const char* searchItems[] = {
-        "By name",
-        "By manufacturer",
-        "By price",
-        "By group",
-        "By arrival date",
-        "By expiry date",
-        "Back"
+        "By name", "By manufacturer", "By price",
+        "By group", "By arrival date", "By expiry date", "Back"
     };
     const int searchSize = sizeof(searchItems) / sizeof(searchItems[0]);
 
     while (true) {
         ClearConsole();
         int choice = ShowMenu(searchItems, searchSize, 5, 2);
+        if (choice == -1 || choice == searchSize - 1) return;
+
         switch (choice) {
         case 0: searchByName(); break;
         case 1: searchByManufacturer(); break;
@@ -361,7 +361,6 @@ void searchMenu() {
         case 3: searchByGroup(); break;
         case 4: searchByArrivalDate(); break;
         case 5: searchByExpiryDate(); break;
-        case 6: return;
         }
     }
 }

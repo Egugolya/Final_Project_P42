@@ -50,6 +50,7 @@ int ShowMenu(const char* items[], int itemCount, int startX, int startY) {
                 SetColor(WHITE, BLACK);
             cout << items[i] << " ";
         }
+
         int key = _getch();
         if (key == 224) {
             key = _getch();
@@ -60,9 +61,14 @@ int ShowMenu(const char* items[], int itemCount, int startX, int startY) {
         }
         else if (key == 13) {
             ShowConsoleCursor(true);
+            SetColor(WHITE, BLACK);
             return active;
         }
-        SetColor(WHITE, BLACK);
+        else if (key == 27) {
+            ShowConsoleCursor(true);
+            SetColor(WHITE, BLACK);
+            return -1;
+        }
     }
 }
 
