@@ -6,6 +6,7 @@
 #include "console_stuff.h"
 #include "warehouse_funcs.h"
 #include "filesystem_funcs.h"
+#include <clocale>
 
 using namespace std;
 

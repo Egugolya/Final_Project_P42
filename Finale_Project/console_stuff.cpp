@@ -4,6 +4,7 @@
 #include <conio.h>
 #include <fstream>
 #include "console_stuff.h"
+#include <clocale>
 
 using namespace std;
 

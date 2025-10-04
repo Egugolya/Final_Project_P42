@@ -1,4 +1,5 @@
 #include <iostream>
+#include <clocale>
 #include <string>
 #include <windows.h>
 #include <conio.h>
@@ -9,6 +10,7 @@
 using namespace std;
 
 int main() {
+    setlocale(LC_ALL, "ukr");
     loadProductsFromFile("products.txt");
     ClearConsole();
     while (true) {
