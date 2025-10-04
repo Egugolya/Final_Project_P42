@@ -10,8 +10,9 @@ using namespace std;
 
 int main() {
     loadProductsFromFile("products.txt");
-
+    ClearConsole();
     while (true) {
+        SetColor(WHITE, BLACK);
         const char* menuItems[] = {
             "Add product",
             "Delete product",
@@ -30,6 +31,8 @@ int main() {
         case 1: deleteProduct(); break;
         case 2: editMenu(); break;   
         case 3: showProducts(); break;
+        case 4: searchMenu(); break;
+        case 5: sortMenu(); break;
         case 6: return 0;
         }
     }

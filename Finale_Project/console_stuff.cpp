@@ -62,5 +62,26 @@ int ShowMenu(const char* items[], int itemCount, int startX, int startY) {
             ShowConsoleCursor(true);
             return active;
         }
+        SetColor(WHITE, BLACK);
     }
+}
+
+void ShowAnimatedMessage(const string& message, int cycles = 3, int delayMs = 300) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+    GetConsoleScreenBufferInfo(hConsole, &csbi);
+    WORD originalAttr = csbi.wAttributes;
+
+    for (int i = 0; i < cycles; ++i) {
+        SetColor(WHITE, RED);
+        cout << "\r" << message << "   ";
+        Sleep(delayMs);
+
+        SetColor(RED, BLACK);
+        cout << "\r" << message << "   ";
+        Sleep(delayMs);
+    }
+
+    SetColor(WHITE, BLACK);
+    cout << "\r" << message << " done.\n";
 }
